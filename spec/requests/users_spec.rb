@@ -43,7 +43,7 @@ describe "Users" do
     describe "failure" do
       
       it "should not sign a user in" do
-        user = { :email => "", :password => "" }
+        user = User.new(:email => "", :password => "")
         integration_sign_in(user)
         response.should have_selector("div.flash.error", :content => "Invalid")
       end
